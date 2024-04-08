@@ -1,0 +1,16 @@
+{% block content  %}
+<div>
+    
+    <h5 align="center">LET IT ALL GO! PEN DOWN IT OVER HERE!<br>
+        At Calm Sage, we are all ears! Feeling distressed, depressed or seeking for some motivation? Connect with us today, Express Yourself & Turn Your Stress Into Positive Energy!
+    </h5>
+   
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+        {{form.as_p}}</br>
+        <input type="submit" value="Send"/>
+        </div>
+        </form>
+</div>
+{% endblock content  %}

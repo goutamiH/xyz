@@ -1,0 +1,45 @@
+{% block content %}
+{% load static %}
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            
+                .img-style{
+                  bottom:0;
+                  left:0;
+                  width:30%;
+                  height: 480px;
+                  padding:8px;
+                  align-content:center;
+                  background-color: #404040;
+                }
+                .info
+                {
+                
+                }
+            </style>
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <img class="img-style" src="{% static 'images/peace2.jpg' %}"><br>
+        <div class="info">
+        We Are Not Giving Up Until Individuals Dealing With Mental Health Problems Gets Support & Respect!
+
+WHO ARE WE?
+Calm Sage is a growing community working towards changing the way individuals think & act about problems related to Mental Health. Managed by the current generation, it’s a dedicated project to help people calm their minds & heal their lives through motivational words, graphics, podcasts, webinars, open-discussions & personal chats.
+
+Here, at Calm Sage, we want you to know You Are Not Alone. We are here to take your mind at a peaceful place, no matter what is happening around you.
+
+We offer comprehensive content all devoted to self-improvement with a focus on personal productivity, inspiration and self-education. We offer our audience a platform to share their real-life struggles & inspiring stories that can be published & get connected with people who are affected by problems like stress, anxiety, trauma, and depression.
+
+OUR AIM
+Calm Sage diverges from traditional ‘Self Help’ by taking a broader approach. Rather than sticking to a small set of topics to deal with mental illness & other issues. The platform addresses important steps you can take in the coping process & even have effective action plans for recovery. Calm Sage is a place where individuals can overcome their day-to-day challenges in a stigma-free environment. While we aspire of a progressive society & culture, we intend to impart practices where mental health taboos & issues can be discussed openly & managed effectively with emotional and professional assistance.
+
+OUR MISSION
+Calm Sage strives to bring billions of smiles every day. It is our mission to improve overall mental and physical wellbeing & reduce discrimination towards individuals dealing with mental problems. We also aim to form a collaborative social structure with a sole goal to promote happiness, channel positivity, and strengthen your soul.
+        </div>   
+</body>
+    </html>
+{% endblock content %}
