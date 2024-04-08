@@ -1,0 +1,97 @@
+{% block content %}
+{% load static %}
+<!--Navbar should be displayed in all pages-->
+    <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon.png' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+   .container
+   {
+      background-image: url("static/images/peace2.jpg");
+      height:640;
+      width:auto;
+      background-position: center;
+      background-repeat: no-repeat; 
+      background-size: cover; 
+      border-radius:6px;
+   }
+   .footer
+   {
+    background-color:#ffff99;
+    font-style:bold;
+   }
+  </style>
+</head>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="{% url 'home' %}">Discussion Rooms</a>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'topics' %}">Topics</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Share A Story <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+      
+        <li class="active"><a href="{% url 'Recent-Activities' %}">Recent Activities</a></li>
+        <li><a href="{% url 'about-us' %}">About us</a></li>
+        <li><a href="{% url 'contact-us' %}">Contact us</a></li>
+        
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<center>
+  <h3>
+   <b><i> Topic-Discussion Chat Rooms</b></i></h3>
+</center>
+<body>
+        <fieldset>
+              <section>
+               <div class="container">
+                  <div class="quick-search">  
+                     <h3 class="heading-title"> How You Feeling Today? </h3>
+                     <ul class="quick_list ">
+                        <li class="one"><a href="{% url 'login' %} ">Anxiety</a></li>
+                     <li class="one"><a href="https://www.calmsage.com?s=Stress">Stress</a></li>
+                     <li class="one"><a href="https://www.calmsage.com?s=Activities">Activities</a></li>
+                     <li class="one"><a href="https://www.calmsage.com?s=Depression">Depression</a></li>
+                     <li class="one"><a href="https://www.calmsage.com?s=Mood Swings">Mood Swings</a></li>
+                     </ul>
+                  
+                  </div>
+                
+               </div>
+            </section>
+          </fieldset>  
+      
+    </form> 
+    <footer>
+        <div class="footer">
+            <p align="center"> Copyright © 2024 your_peace_matters_first.com All rights reserved.</p>
+            <p align="center">      Disclaimer: Content Provided by your_peace_matters_first serves as information purpose only and cannot be directed as a substitute for any type of professional medical advice. Therefore, we encourage our readers to seek the guidance .</p>
+        </div>
+    </footer>
+  </body>
+
+{%endblock %}
+</html>
