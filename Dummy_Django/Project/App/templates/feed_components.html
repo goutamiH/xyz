@@ -1,5 +1,5 @@
-
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div>
   <hr>
@@ -10,7 +10,7 @@
 <div class="roomListRoom__header">
 <a href="" class="roomListRoom__author">
   <div class="avatar avatar--small">
-    <img src="https://randomuser.me/api/portraits/women/11.jpg" />
+    <img src="{% static 'images/profile.svg' %}" />
   </div>
   <span>@{{room.host.username}}</span>
 </a>
@@ -21,8 +21,7 @@
 <div class="roomListRoom__content">
 <a href="{% url 'room' room.id %}">{{room.name}}</a>
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur ducimus harum dolorem, obcaecati
-  mollitia omnis quasi aut consequuntur enim itaque labore.
+ {{room.description}}
 </p>
 </div>
 

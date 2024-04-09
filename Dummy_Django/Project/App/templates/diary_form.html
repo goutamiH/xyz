@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'title_of_diary.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="container pt-5 mt-6">
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <br>
+    <input class="button is-primary" type="submit">
+</form>
+</div>
+{% endblock body %}

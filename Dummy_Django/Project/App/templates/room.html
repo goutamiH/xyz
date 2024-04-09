@@ -81,7 +81,7 @@
                 <p>Hosted By</p>{{host}}
                 <a href="{% url 'profile' room.host.id %}" class="room__author">
                   <div class="avatar avatar--small">
-                    <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                    <img src="{% static 'images/pic.svg' %}" />
                   </div>
                   <span>@{{room.host}}
                   </span>
@@ -89,11 +89,9 @@
               </div>
               
               <div class="room__details">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, tenetur laudantium? Dicta repellendus
-                rerum consectetur, voluptatem repudiandae eum ea porro cupiditate provident nulla, deserunt, ab ipsum
-                corporis laboriosam deleniti molestias?
+                {{ room.description }}
               </div>
-              <span class="room__topics"></span>
+              <span class="room__topics">{{room.topic}}</span>
             </div>
             <div class="room__conversation">
               <div class="threads scroll">
@@ -105,7 +103,7 @@
                       <a href="{% url 'profile' user.id %}" class="thread__authorInfo">
                         
                         <div class="avatar avatar--small">
-                          <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                          <img src="{% static 'images/profile.svg' %}" />
                         </div>
                         <span>@{{msg.user}} </span>
                       </a>

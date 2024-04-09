@@ -11,12 +11,6 @@
   <title>StudyBuddy - Find study partners around the world!</title>
  
 </head>
-
-   
-  
-        
- 
-  
       <div class="activities-page layout__body">
         <h3>Recent Activities</h3>
         {% for msg in room_messages%}
@@ -25,7 +19,7 @@
           <div class="activities__boxHeader roomListRoom__header">
             <a href="{%  url 'profile' user.id %}" class="roomListRoom__author">
               <div class="avatar avatar--small active">
-                <img src="https://randomuser.me/api/portraits/men/13.jpg" />
+                <img src="{% static 'images/profile.svg' %}" />
               </div>
               <p>
                 {{msg.user}}

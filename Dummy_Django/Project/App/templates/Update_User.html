@@ -44,12 +44,7 @@
                          {%endfor%}
                          </ul>
                          {%endif%}
-                       </div> 
-              <div class="form__group">
-                <label for="profile_pic">Avataar</label>
-                  <input id="profile_pic" name="profile_pic" type="file" />
-              </div>
-
+                        </div>
               <div class="form__group">
                 <label for="username">Username</label>
                 <input id="username" name="username" type="text" placeholder="E.g. John doe" />
@@ -60,20 +55,20 @@
                 <input id="email" name="email" type="text" placeholder="E.g. john@email.com" />
               </div>
 
-                        <div class="form__group">
-                            <label for="user_bio">Bio</label>
-                            <textarea name="user_bio" id="user_bio" placeholder="Write about yourself..."></textarea>
-                        </div>
-                        <div class="form__action">
-                            <a class="btn btn--dark" href="{% url 'home' %}">Cancel</a>
-                            <button class="btn btn--main" type="submit">Update</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+              <div class="form__group">
+                <label for="user_bio">Bio</label>
+                  <textarea name="user_bio" id="user_bio" placeholder="Write about yourself..."></textarea>
+              </div>
+          <div class="form__action">
+              <a class="btn btn--dark" href="{% url 'home' %}">Cancel</a>
+                <button class="btn btn--main" type="submit">Update</button>
+                  </div>
+          </form>
         </div>
       </div>
-    </main>
-  </body>
+    </div>
+  </div>
+  </main>
+</body>
 </html>
 {% endblock %}

@@ -34,3 +34,13 @@ class Userform(forms.ModelForm):
     class Meta:
         model=User
         fields = '__all__'
+
+class Dairy_Writing_Form(forms.ModelForm):
+	class Meta:
+		model=Diary_Writing
+		fields="__all__"
+
+class StoryForm(forms.ModelForm):
+	class Meta:
+		model=ShareStory
+		fields="__all__"

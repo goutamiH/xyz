@@ -3,13 +3,12 @@
 {% load static %}
 <html lang="en">
    <head>
-   
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
       <link rel="stylesheet" href="{% static 'style/style.css'%}" />
-      <title>StudyBuddy - Find study partners around the world!</title>
+      <title>Empowering A New You!.</title>
       <script src="{% static 'js/script.js' %}"></script>
    </head>
   {% include 'navbar.html' %}    
@@ -46,27 +45,19 @@
                   {% endfor %}
               </select>
               </datalist>
-
             </div>
-
 
             <div class="form__group">
               <label for="room_about">About</label>
-              <textarea name="room_about" id="description" placeholder="Write about your study group..."></textarea>
+              <textarea name="description" id="room_description" placeholder="Write about your study group..."></textarea>
             </div>
            
             <div class="form__action">
-              
              <a class="btn btn--dark" href="{% url 'home' %}">Cancel</a>
               <button class="btn btn--main" type="submit">Create Room</button>
             </div>
-            
           </form>
-          
-
-         
         </div>
       </div>
-    
   </main>
 {% endblock content %}

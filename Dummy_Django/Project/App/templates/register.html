@@ -17,6 +17,26 @@
       background-size: cover; 
       border-radius:6px;
    }
+   .footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background-color:#898686 ;
+  }
+  .footer-text-left {
+    font-size:18px;
+    padding-left:40px;
+    float:left;
+    word-spacing:2px;
+  }
+  
+  a.menu:hover {
+    background-color:yellow;
+    font-size:20px;
+  }
+  
   </style>
 </head>
 
@@ -32,18 +52,17 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Share Your Story</a></li>
+        <li class="active"><a href="{% url 'topics' %}">Browse Topics </a></li>
+        <li class="active"><a href="{% url 'Recent-Activities' %}">Recent Comments </a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Self Help Care<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Page 1-1</a></li>
-            <li><a href="#">Page 1-2</a></li>
-            <li><a href="#">Page 1-3</a></li>
+            <li><a href="{% url 'Share-a-story' %}">Share your story</a></li>
+            <li><a href="{% url 'Dairy-Writing' %}">Write A Dairy</a></li>
           </ul>
         </li>
         <li><a href="{% url 'about-us' %}">About us</a></li>
         <li><a href="{% url 'contact-us' %}">Contact us</a></li>
-        <li class="active"><a href="#"></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -72,13 +91,12 @@
             </section>
           </fieldset>  
     </form> 
-    <footer>
-        <div class="footer">
+    <footer class="footer">
+        <div class="footer-text-left">
             <p align="center"> Copyright © 2024 your_peace_matters_first.com All rights reserved.</p>
             <p align="center">      Disclaimer: Content Provided by your_peace_matters_first serves as information purpose only and cannot be directed as a substitute for any type of professional medical advice. Therefore, we encourage our readers to seek the guidance .</p>
         </div>
     </footer>
   </body>
-
 {%endblock %}
 </html>

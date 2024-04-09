@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% block content %}
+<style>
+    .header
+    {
+        font-size:300%;
+        font-family:verdana;
+        color:maroon;
+    }
+</style>
+<body>
+{% include  'title_of_diary.html' %}
+<br><br><center>
+<h1 class="header"><i>Daily-Based Dairy Writing Platform</i></h1></center>
+    <div class="container pt-5 mt-6">
+        <form method="post">
+            {% csrf_token %}
+           
+            <div class="control">
+                <input class="input is-primary is-focused is-medium" name="editordata" type="text"
+                    placeholder="Leave a note...">
+            </div>
+
+            <span>
+                <button class="button is-link mt-4" type="submit">
+                    <span class="icon is-small">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span>Save</span>
+                </button>
+            </span>
+        </form>
+
+
+    </div>
+
+    <div class="container pt-6 mt-5">
+        <div class="d-grid gap-2 d-md-block mr-4 p-5 shadow">
+
+
+            {% for post in diary_post %}
+            <h1 class="title">
+                {{ post.text }}
+            </h1>
+
+            <h2 class="subtitle is-italic">
+                Created at {{ post.data_created }}
+            </h2>
+
+            <a href="{% url 'update_diary' post.id %}" class="button is-primary" role="button" aria-pressed="true">Edit</a>
+            <a href="{% url 'delete_diary' post.id %}" class="button is-danger" role="button" aria-pressed="true">Delete</a>
+            <br>
+            <!-- If objet_list is empty  -->
+            {% empty %}
+            <h2>Diary object is empty.</h2>
+            {% endfor %}
+
+        </div>
+
+        {% if diary_post.has_other_pages %}
+        <ul class="pagination">
+        {% if diary_post.has_previous %}
+        <li><a href="?page={{ diary_post.previous_page_number }}">&laquo;</a></li>
+        {% else %}
+        <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in diary_post.paginator.page_range %}
+        {% if diary_post.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if diary_post.has_next %}
+        <li><a href="?page={{ diary_post.next_page_number }}">&raquo;</a></li>
+        {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+    </div>
+{% endblock %}

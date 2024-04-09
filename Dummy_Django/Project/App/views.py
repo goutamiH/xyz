@@ -10,6 +10,9 @@ from django.contrib import messages
 from .forms import *
 from .models import *
 from django.db.models import *
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic.edit import UpdateView
+from django.views.generic.edit import DeleteView
 
 # Create your views here. 
 def registerUser(request):
@@ -159,10 +162,14 @@ def deleteMessage(request,pk):
 def userprofile(request,pk):
     #user = get_object_or_404(User, pk=pk)
     user=User.objects.get(pk=pk)
+    
     rooms=user.room_set.all()
     room_messages=user.message_set.all()
     topics=Topic.objects.all()
-    context={'user':user, 'rooms':rooms,'room_messages':room_messages,'topics':topics}
+    if request.method=="POST":
+         bio=request.POST.get('user_bio')
+         user.save()
+    context={'user':user, 'rooms':rooms,'room_messages':room_messages,'topics':topics,'bio':bio}
     return render(request,'profile.html',context)
 
 def Topics_collection(request):
@@ -184,3 +191,50 @@ def Update_user(request,pk):
             form.save()
             return redirect('profile',user.id)
     return render(request,'Update_User.html',{'form':form})
+
+@login_required(login_url='login')
+def DairyModule(request):
+    if request.method == 'POST':
+        text = request.POST.get('editordata')
+        
+        diary_post = Diary_Writing(text=text)
+        diary_post.save()
+        
+    diary_post = Diary_Writing.objects.all()
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(diary_post, 3)
+    try:
+        diary_post = paginator.page(page)
+    except PageNotAnInteger:
+        diary_post = paginator.page(1)
+    except EmptyPage:
+        diary_post = paginator.page(paginator.num_pages)
+
+    context = {'diary_post':diary_post}
+    return render(request, 'diary.html', context)
+
+class DiaryUpdateView(UpdateView):
+    model = Diary_Writing
+    fields = ('text',)
+    template_name = 'diary_form.html'
+    success_url ="/Dairy-Writing/"
+
+class DiaryDeleteView(DeleteView):
+    model = Diary_Writing
+    template_name = 'diary_confirm_delete.html'
+    success_url = "/Dairy-Writing/"
+
+
+
+
+def ShareStory(request):
+    form=StoryForm()
+    if request.method=='POST':
+        form=StoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Story has been submitted to the admin')
+            return redirect('home')
+    context={'form':form}   
+    return render(request,'story_form.html',context)

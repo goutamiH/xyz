@@ -23,7 +23,10 @@ urlpatterns = [
     path('update-user/<str:pk>/',views.Update_user,name="update-user"),
     path('topics/',views.Topics_collection,name='topics'),
     path('Recent-Activities/',views.Activity_Page,name='Recent-Activities'),
-    
+    path('Dairy-Writing/',views.DairyModule,name="Dairy-Writing"),
+    path('<pk>/update_diary/',views.DiaryUpdateView.as_view(),name="update_diary"),
+    path('<pk>/delete_diary/',views.DiaryDeleteView.as_view(),name="delete_diary"),
+    path('Share-a-story',views.ShareStory,name="Share-a-story"),
 ]  
 if settings.DEBUG:
    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

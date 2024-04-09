@@ -47,3 +47,22 @@ class Message(models.Model):
     def __str__(self):
         return self.body[0:45]
 
+class Diary_Writing(models.Model):
+    text = models.TextField(null=True,blank=True)
+    data_created = models.DateTimeField(auto_now_add=True,null=True,blank=True)
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        ordering = ('-data_created',)
+        verbose_name_plural = 'Diary'
+
+
+class ShareStory(models.Model):
+    name=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+    story_title=models.TextField(max_length=200,null=True)
+    story=models.TextField(max_length=2000)
+    def __str__(self):
+        return self.name
+    

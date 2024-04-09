@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% include 'navbar.html' %}
 {% load static %}
 {% block content %} 
 <html lang="en">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'style/style.css' %}" />
     <title>StudyBuddy - Find study partners around the world!</title>
   </head>
-<img src="{% static 'images/peace2.jpg' %}" height="auto" width="auto"> 
+
 <main class="auth layout">
   <div class="container">
     <div class="layout__box">
@@ -22,7 +22,7 @@
       <div class="layout__body">
         <h2 class="auth__tagline">Find your study partner</h2>
 
-        <form class="form" action="{% url 'home' %}" method="POST">
+        <form class="form" action="" method="POST">
           {% csrf_token %}
           <div class="form__group form__group">
             <label for="room_name">Username</label>
